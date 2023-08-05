@@ -1,0 +1,49 @@
+﻿@model IEnumerable<List>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Grocery List</h1>
+<a asp-controller="List" asp-action="Create" class="btn btn-secondary"> <i class="bi bi-plus-circle-dotted"></i>&nbsp; Add new Item</a>
+
+<table class="table table-bordered table-striped" style="width:100%">
+<thead>  
+    <tr>
+        <th>
+            Item Name
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Add Time in HH:MM Format
+        </th>
+
+    </tr>
+
+</thead>
+<tbody>
+        @foreach(var itm in Model)
+        {
+            <tr>
+                <td width="20%">
+                    @itm.ItemName
+                </td>
+                <td width="8%">
+                    @itm.Quantity
+                </td>
+                <td width="20%">
+                    @itm.DateTimeCreated
+                </td>
+                <td width="8%">
+                    <div class="w-75 btn-group" role="group">
+                
+                        <a asp-controller="List" asp-action="Edit" asp-route-id="@itm.Id" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i>Edit</a>
+                        <a asp-controller="List" asp-action="Delete" asp-route-id="@itm.Id" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i>Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

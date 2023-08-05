@@ -1,0 +1,33 @@
+﻿@model List
+<form method="post" asp-action="Edit">
+    <div class="border p-4 mt-5">
+        <div class="row pb-4">
+            <h3 class="text-secondary">
+                Edit Item
+            </h3>
+        </div>
+        <div class="mb-4">
+            <label asp-for="ItemName"></label>
+            <input asp-for="ItemName" class="form-control" />
+            <span asp-validation-for="ItemName" class="text-danger"></span>
+        </div>
+        <div class="mb-4">
+            <label asp-for="Quantity"></label>
+            <input asp-for="Quantity" class="form-control" />
+            <span asp-validation-for="Quantity" class="text-danger"></span>
+        </div>
+        <div class="mb-4">
+            <label asp-for="DateTimeCreated"></label>
+            <input asp-for="DateTimeCreated" class="form-control" />
+            <span asp-validation-for="DateTimeCreated" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-outline-success" style="width 190px">Update</button>
+        <a asp-controller="List" asp-action="Index" class="btn btn-outline-warning" style="width 190px">Back</a>
+
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

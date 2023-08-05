@@ -1,0 +1,30 @@
+﻿@model List
+<form method="post" asp-action="Edit">
+    <div class="border p-4 mt-5">
+        <div class="row pb-4">
+            <h3 class="text-secondary">
+                Are you sure you want to delete?
+            </h3>
+        </div>
+        <div class="mb-4">
+            <label asp-for="ItemName"></label>
+            
+        </div>
+        <div class="mb-4">
+            <label asp-for="Quantity"></label>
+            
+        </div>
+        <div class="mb-4">
+            <label asp-for="DateTimeCreated"></label>
+            
+        </div>
+        <button type="submit" class="btn btn-outline-success" style="width 190px">Delete</button>
+        <a asp-controller="List" asp-action="Index" class="btn btn-outline-warning" style="width 190px">Back</a>
+
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
